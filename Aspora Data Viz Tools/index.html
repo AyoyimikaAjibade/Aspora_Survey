@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspora</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/slides.css">
+</head>
+<body>
+    <header class="fixed-nav-bar">
+        <a href="#" onclick="aspora_recognition()">Aspora Recognition</a>
+        <a href="#" onclick="sport_experience()">Sports Experience</a>
+        <a href="#" onclick="lace_laceless()">Laces/Laceless</a>
+        <a href="#" onclick="shoe_sizes()">Shoe Sizes</a>
+        <a href="#" onclick="shoe_prices()">Shoe Prices</a>
+        <a href="#" onclick="product_interest()">Product Interest</a>
+    </header>
+    <br>
+    <br>
+    <br>
+    <main id="main">
+      <div class="slidershow middle">
+        <div class="slides">
+          <input type="radio" name="r" id="r1" checked>
+          <input type="radio" name="r" id="r2">
+          <input type="radio" name="r" id="r3">
+          <input type="radio" name="r" id="r4">
+          <input type="radio" name="r" id="r5">
+          <input type="radio" name="r" id="r6">
+          <input type="radio" name="r" id="r7">
+
+            <div class="slide s1">
+              <canvas width="13" height="5" id="barChart1"></canvas>
+            </div>
+            <div class="margin" >
+            </div>
+          <div class="slide">
+            <canvas width="13" height="5" id="barChart2"></canvas>
+          </div>
+        <div class="slide">
+          </div>
+           <!--  <div class="slide">
+            <canvas width="13" height="5" id="barChart4"></canvas>
+          </div>
+          <div class="slide">
+            <canvas width="13" height="5" id="barChart5"></canvas>
+          </div>
+        </div> -->
+        <div class="navigation">
+          <label for="r1" class="dot"></label>
+           <label for="r2" class="dot"></label>
+            <label for="r3" class="dot"></label>
+             <label for="r4" class="dot"></label>
+              <label for="r5" class="dot"></label>
+               <label for="r6" class="dot"></label>
+                <label for="r7" class="dot"></label>
+        </div>
+      </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/data.js"></script>
+</body>
+</html>

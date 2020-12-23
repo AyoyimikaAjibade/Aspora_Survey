@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/slides.css">
+    <style>
+      * {
+    box-sizing: border-box;
+}
+
+html, body{
+    background-color: rgb(5,5,5);
+    height: 100vh;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    margin:0;
+    padding:0;
+}
+header{
+    display: flex;
+    flex-wrap: nowrap;
+    margin:0;
+    width: 100%;
+    justify-content:space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+      
+  }
+  header a{
+    padding: 20px 16px;
+    color:  #fff;
+    text-decoration: none;
+  }
+ header a:hover {
+    background-color: rgb(65,65,65);
+    color: #fff;
+  }
+  .container{
+    max-width: 80%;
+    margin: auto;
+    padding: auto;
+  }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" onclick="aspora_recognition1(), aspora_recognition2(), allSlides()">Aspora Recognition</a>
+        <a href="#">Sports Experience</a>
+        <a href="#">Laces/Laceless</a>
+        <a href="#">Shoe Sizes</a>
+        <a href="#">Shoe Prices</a>
+        <a href="#">Product Interest</a>
+    </header>
+    <br>
+    <br>
+    <br>
+    <main>
+        <div  class="container">
+            <div id="chartContainer1"></div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+      /* Barchart for aspora recognition representing  the survey question data
+gathered during the marketing research based on the launch of a new products */
+
+function survey(){
+	const array = ["Have you ever heard about Aspora?","Have you ever used an Aspora product?"];
+  array.forEach(function (item) {
+	return item;
+  });
+  }
+
+  function dataResult(){
+	const dataObj = [
+	{agree:521, disagree: 459, both:20},
+	{agree:367, disagree: 543, both:90},
+  ];
+  for(i = 0; i < dataObj.length; i++){
+	console.log(dataObj[i].agree);
+	console.log(dataObj[i].disagree);
+	console.log(dataObj[i].both);
+	return 
+  }
+  }
+  
+//using the first question data i.e (Have you ever heard about Aspora?) for representaion in a barchart
+function aspora_recognition1() {
+	var chart = new CanvasJS.Chart("chartContainer1", {
+		animationEnabled:true,
+		theme: "dark1",
+		title:{
+			text: "Have you ever heard about Aspora?",
+			fontSize: 25,
+			fontFamily: "tahoma",
+			padding:5,        
+		},
+		axisY:{
+			title:"Survey Question",
+			titleFontFamily: "comic sans ms",
+			//usinggridThickness: 0,
+		},
+		data: [              
+		{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "column",
+			showInLegend:true,
+			legendMarkerColor:"yellow",
+			legendText: 'No of Responses',
+			dataPoints: [
+				{ label: "Agree",  y: 521  },
+				{ label: "Disagree", y: 459  },
+				{ label: "Both", y: 20  },
+			]
+		}
+		]
+	});
+	chart.render();
+}
+var container = document.getElementById("container");
+var div = document.createElement("div");
+main.appendChild(div); 
+
+ //using the second question data i.e (Have you ever used an Aspora product?) for representaion in a barchart
+function aspora_recognition2() {
+	var chart = new CanvasJS.Chart("chartContainer2", {
+		animationEnabled:true,
+		theme: "dark1",
+		title:{
+			text: "Have you ever used an Aspora product?",
+			fontSize: 25,
+			fontFamily: "tahoma",
+			padding:5,              
+		},
+		axisY:{
+			title:"Survey Question",
+			titleFontFamily: "comic sans ms",
+			titleFontWeight:"lighter",
+		},
+		data: [              
+		{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "column",
+			showInLegend:true,
+			legendMarkerColor:"green",
+			legendText: 'No of Responses',
+			dataPoints: [
+				{ label: "Agree",  y: 367  },
+				{ label: "Disagree", y: 543  },
+				{ label: "Both", y: 90  },
+			]
+		}
+		]
+	});
+	chart.render();
+} 
+
+
+
+var slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if(n > slides.length) {
+          slideIndex = 1
+        }
+        if(n < 1) {
+          slideIndex = slides.length
+        }
+        for(i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for(i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+		slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+	  }
+	  
+function allSlides(){
+	plusSlides(n);
+	currentSlide(n);
+	showSlides(n);
+}
+
+
+/* Barchart for sport experience representing  the survey question data
+gathered during the marketing research based on the launch of a new products */
+
+//using the third question data i.e (Do you currently play any kind of sport?) for representaion in a barchart
+function sport_experience3() {
+	var chart = new CanvasJS.Chart("chartContainer3", {
+		animationEnabled:true,
+		theme: "dark1",
+		title:{
+			text: "Do you currently play any kind of sport?",
+			fontSize: 25,
+			fontFamily: "tahoma",
+			padding:5,        
+		},
+		axisY:{
+			title:"Survey Question",
+			titleFontFamily: "comic sans ms",
+			//usinggridThickness: 0,
+		},
+		data: [              
+		{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "column",
+			showInLegend:true,
+			legendMarkerColor:"yellow",
+			legendText: 'No of Responses',
+			dataPoints: [
+				{ label: "Agree",  y: 456,  },
+				{ label: "Disagree", y: 417  },
+				{ label: "Both", y: 127  },
+			]
+		}
+		]
+	});
+	chart.render();
+}
+
+//using the fourth question data i.e (Would you use these trainers for sporting activities?) for representaion in a barchart
+function sport_experience4() {
+	var chart = new CanvasJS.Chart("chartContainer4", {
+		animationEnabled:true,
+		theme: "dark1",
+		title:{
+			text: "Would you use these trainers for sporting activities?",
+			fontSize: 25,
+			fontFamily: "tahoma",
+			padding:5,              
+		},
+		axisY:{
+			title:"Survey Question",
+			titleFontFamily: "comic sans ms",
+			titleFontWeight:"lighter",
+		},
+		data: [              
+		{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "column",
+			showInLegend:true,
+			legendMarkerColor:"green",
+			legendText: 'No of Responses',
+			dataPoints: [
+				{ label: "Agree",  y: 365  },
+				{ label: "Disagree", y: 486  },
+				{ label: "Both", y: 149  },
+			]
+		}
+		]
+	});
+	chart.render();
+}
+
+//using the fifth question data i.e (Would you use these trainers for non-sporting activities?) for representaion in a barchart
+function sport_experience5() {
+	var chart = new CanvasJS.Chart("chartContainer5", {
+		animationEnabled:true,
+		theme: "dark1",
+		title:{
+			text: "Would you use these trainers for non-sporting activities? ",
+			fontSize: 25,
+			fontFamily: "tahoma",
+			padding:5,              
+		},
+		axisY:{
+			title:"Survey Question",
+			titleFontFamily: "comic sans ms",
+			titleFontWeight:"lighter",
+		},
+		data: [              
+		{
+			// Change type to "doughnut", "line", "splineArea", etc.
+			type: "column",
+			showInLegend:true,
+			legendMarkerColor:"green",
+			legendText: 'No of Responses',
+			dataPoints: [
+				{ label: "Agree",  y: 578  },
+				{ label: "Disagree", y: 385  },
+				{ label: "Both", y: 37  },
+			]
+		}
+		]
+	});
+	chart.render();
+}
+
+
+var slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if(n > slides.length) {
+          slideIndex = 1
+        }
+        if(n < 1) {
+          slideIndex = slides.length
+        }
+        for(i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for(i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+		slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+	  }
+	  
+function allSlides(){
+	plusSlides(n);
+	currentSlide(n);
+	showSlides(n);
+}
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Slideshow Images</title>
+    <style>
+      .mySlides {
+        display: none
+      }
+      img {
+        vertical-align: middle;
+      }
+      .slideshow-container {
+        position: relative;
+        margin: auto;
+        max-width: 450px;
+        padding: 0 20px;
+        margin: 0 auto;
+      }
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+      /* Position the "next button" to the right */
+      .next {
+        right: 4%;
+        border-radius: 3px 0 0 3px;
+      }
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+      /* Caption text */
+      .text {
+        color: #ffffff;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #ffffff;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      /* The dots/bullets/indicators */
+      .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #999999;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+      .active,
+      .dot:hover {
+        background-color: #111111;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+      @-webkit-keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      @keyframes fade {
+        from {
+          opacity: .4
+        }
+        to {
+          opacity: 1
+        }
+      }
+      /* On smaller screens, decrease text size */
+      @media only screen and (max-width: 300px) {
+        .prev,
+        .next,
+        .text {
+          font-size: 11px
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5dYDXiMDmS0cY8n4z8yGJu-G4-DAjIjxvSg&usqp=CAU" style="width:100%">
+        <div class="text">London, Ebgland</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTom-Ls3KUzxJoXVFQA3gPG2L7b22KWIyHGNA&usqp=CAU" style="width:100%">
+        <div class="text">Sunset in Romania</div>
+      </div>
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQY1uxI7aBgyn4oKZa8olbpMrqO4NeQhJhgA&usqp=CAU" style="width:100%">
+        <div class="text">New York, USA</div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if(n > slides.length) {
+          slideIndex = 1
+        }
+        if(n < 1) {
+          slideIndex = slides.length
+        }
+        for(i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for(i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+    </script>
+  </body>
+</html> -->

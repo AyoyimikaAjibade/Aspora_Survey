@@ -2,7 +2,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "RqYDfm5pYYQShhAf";
-$dbname = "aspora survey";
+$dbname = "aspora_survey";
 
 // Create connection
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);

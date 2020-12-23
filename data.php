@@ -1,6 +1,7 @@
 <?php
 include 'db_connect.php';
 
+
 $query1 = "SELECT * FROM aspora_recognition";
 $query2 = "SELECT * FROM sports_experience";
 $query3 = "SELECT * FROM laces_laceless";

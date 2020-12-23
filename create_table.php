@@ -1,29 +1,37 @@
 <?php
+
 function createTable($headers, $result, $table_name) {
-    echo"<table>";
-    echo "<thead>
-    <th><h2>".$table_name."</h2></th>
-<tr> ";
-    foreach($headers as $value){
-        echo"<th>".$value."</th>";
-    }
-echo "</tr>
-</thead>";
-    while($row = mysqli_fetch_assoc($result)) {
-        echo"<tbody>";
-           echo" <tr>";
-                foreach($row as $value){
     
-                    echo"<td>".$value."</td>";
-                }
-                echo"<td><a href='index.php?edit=".$row['question_number']."'>Edit</a></td>";
-                echo"<td><a href='process.php?delete=".$row['question_number']."'>Delete</a></td>";
-          echo "</tr>";
-          echo "</tbody>";
-
-    } 
+?> <table class="table table-hover table-dark table-sm table-striped table-bordered" style="margin-top:20px">
+    <thead>
+    <th colspan = "9">
+        <h2  style="text-align:center"><?php echo $table_name ?>
+        <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Insert</button>
+    </h2>
+        
+    </th>
+<tr>
     
-echo "</table>";
+    <?php foreach($headers as $value){?>
+        <th style="text-align:center"><?php echo $value ?> </th>
+    <?php } ?>
+</tr>
+</thead>
+    <?php while($row = mysqli_fetch_assoc($result)) {
+        ?> <tbody>
+           <tr>
+                <?php foreach($row as $key => $value){ ?>
+                    <td style="text-align:center"><?php echo $value ?></td>
+             <?php   } ?>
+                <td style="text-align:center"><a href='index.php?edit=<?php echo $row['question_number']; ?> ' ><button type="button" class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Edit</button></a></td>
+                <td style="text-align:center"><a href='delete.php?delete=<?php echo $row['question_number']; ?> '><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></a></td>
+          </tr>
+          </tbody>
 
-}
+   <?php } ?>
+    
+</table>
+
+
+<?php }
 ?>
