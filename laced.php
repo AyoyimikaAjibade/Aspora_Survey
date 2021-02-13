@@ -8,7 +8,7 @@
 <body>
 <?php 
 include 'db_connect.php';
-include 'delete.php';
+
 
 $survey_question = '';
 $update = false;
@@ -83,9 +83,20 @@ if (isset($_POST['update'])){
     }//redirect the user to the mainpage
     header("location: index.php");
 }
+
+if (isset($_GET['delete'])){
+  $question_number = $_GET['delete'];
+  $del_query = "DELETE FROM laces_laceless WHERE question_number=$question_number";
+  $deleted = mysqli_query($conn, $del_query) or die(mysqli_error($conn));
+
+  $_SESSION['message'] = "Record has been successfully deleted!";
+  $_SESSION['msg_type'] = "success";
+
+  header("location: index.php");
+}
 ?>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

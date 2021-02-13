@@ -8,7 +8,6 @@
 <body>
 <?php 
 include 'db_connect.php';
-include 'delete.php';
 
 $survey_question = '';
 $agree= ''; 
@@ -83,6 +82,16 @@ if (isset($_POST['update'])){
     header("location: index.php");
 }
 
+if (isset($_GET['delete'])){
+  $question_number = $_GET['delete'];
+  $del_query = "DELETE FROM shoe_prices WHERE question_number=$question_number";
+  $deleted = mysqli_query($conn, $del_query) or die(mysqli_error($conn));
+
+  $_SESSION['message'] = "Record has been successfully deleted!";
+  $_SESSION['msg_type'] = "success";
+
+  header("location: index.php");
+}
 ?>
 
     <!--Modal
